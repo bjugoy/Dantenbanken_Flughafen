@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>Flughafen Webanwendung</display-name>
+
+    <!-- Konfiguration für Sessions -->
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- Zeitüberschreitung für Sitzungen in Minuten -->
+        <cookie-config>
+            <name>FLUGHAFEN_SESSION_ID</name> <!-- Name des Session-Cookies -->
+            <http-only>true</http-only> <!-- HTTP-Only Cookie für Sicherheit -->
+            <secure>false</secure> <!-- Cookie nur über HTTPS übertragen (für Produktionsumgebungen auf true setzen) -->
+        </cookie-config>
+    </session-config>
+
+    <!-- Servlet-Konfiguration -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.datenbanken_flughafen.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.example.datenbanken_flughafen.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DatabaseQueryServlet</servlet-name>
+        <servlet-class>com.example.datenbanken_flughafen.DatabaseQueryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DatabaseQueryServlet</servlet-name>
+        <url-pattern>/DatabaseQueryServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>com.example.datenbanken_flughafen.BookingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/BookingServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Weitere Servlets und Servlet-Mappings hier einfügen -->
+
+    <!-- Willkommensseite (index.jsp) -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+</web-app>
